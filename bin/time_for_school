@@ -4,6 +4,14 @@ require_relative "../lib/user.rb"
 require_relative "../lib/teacher.rb"
 require_relative "../lib/student.rb"
 
+jim = User.new
+jim.first_name = "Jim"
+jim.last_name = "Johns"
+
+steph = Student.new
+steph.first_name = "Steph"
+steph.last_name = "Little"
+
 steve = Student.new
 steve.first_name = "Steve"
 steve.last_name = "Jobs"
@@ -14,7 +22,15 @@ avi.last_name = "Flombaum"
 
 
 some_knowledge = avi.teach 
+more_knowledge = avi.teach
+thrice_knowledge = avi.teach
 
 steve.learn(some_knowledge)
+steve.learn(more_knowledge)
+steph.learn(thrice_knowledge)
 
-puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
+puts "Steve just learned this important knowledge: '#{steve.knowledge[1]}' from Avi"
+
+Student.all.each do |user|
+    puts user.knowledge
+end

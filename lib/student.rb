@@ -1,7 +1,9 @@
 class Student < User
 
+    @@all = []
     def initialize
         @knowledge = []
+        @@all << self
     end
 
     def learn(string)
@@ -12,4 +14,8 @@ class Student < User
         @knowledge
     end
 
+    def self.all
+        @@all
+    end
+    
 end
